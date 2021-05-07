@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Route;
 
+use LaravelTheme;
+
 class PackageServiceProvider extends ServiceProvider
 {
     /**
@@ -27,14 +29,12 @@ class PackageServiceProvider extends ServiceProvider
         $packagePath = dirname(__DIR__);
 
         // register view
-        $this->loadViewsFrom($packagePath . '/resources/views', 'shopy');
+        $this->loadViewsFrom($packagePath . '/resources/views', 'articles');
 
         $this->loadMigrationsFrom($packagePath.'/database/migrations');
 
         // boot translator
-        $this->loadTranslationsFrom($packagePath . '/resources/lang' , 'shopy');
-
-        \HtmlElement::mapNamespace('shopy', '\bachphuc\Shopy');
+        $this->loadTranslationsFrom($packagePath . '/resources/lang' , 'articles');
     }
 
     /**
@@ -56,6 +56,8 @@ class PackageServiceProvider extends ServiceProvider
 
         $this->app->bind('mobi_article_category', '\bachphuc\LaravelArticle\Models\ArticleCategory');
         $this->app->bind('mobi_article', '\bachphuc\LaravelArticle\Models\Article');
+
+        LaravelTheme::registerFacade('laravel_article');
     }
 
     /**
@@ -65,7 +67,7 @@ class PackageServiceProvider extends ServiceProvider
      */
     public function mapRoutes()
     {
-        $this->mapApiRoutes();
+        // $this->mapApiRoutes();
 
         $this->mapWebRoutes();
 

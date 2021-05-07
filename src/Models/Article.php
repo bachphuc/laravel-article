@@ -25,16 +25,16 @@ class Article extends ArticleBase
         'content',
         'total_comment',
         'total_like',
-        'thumbnail_500',
         'image',
+        'thumbnail_500',
+        'thumbnail_320',
+        'thumbnail_270',
+        'thumbnail_120',
         'cover',
         'alias',
         'site_id',
         'category_id',
         'status',
-        'thumbnail_320',
-        'thumbnail_270',
-        'thumbnail_120',
         'source_name',
         'source_url',
         'total_view',
@@ -49,5 +49,44 @@ class Article extends ArticleBase
 
     public function category(){
         return $this->belongsTo('\bachphuc\LaravelArticle\Models\ArticleCategory');
+    }
+
+    public function getHref(){
+        if(!empty($this->alias)){
+            return route('articles.detail', ['alias' => $this->alias]);
+        }
+        return route('articles.show', ['id' => $this->id]);
+    }
+
+    public function getEditHref(){
+        return route('articles.edit', ['id' => $this->id]);
+    }
+
+    public static function getByAlias($alias){
+        return Article::where('alias', $alias)
+        ->orWhere('id', $alias)
+        ->first();
+    }
+
+    public function updateAlias(){
+        if(!empty($this->alias)) return;
+
+        $this->alias = str_slug($this->title) . '-' . $this->id;
+        $this->save();
+    }
+
+    public static function getCreateHref(){
+        return route('articles.create');
+    }
+
+    public static function getIndexHref(){
+        return route('articles.index');
+    }
+
+    public function getRelated($params = []){
+        $length = isset($params['length']) ? (int) $params['length'] : 4;
+        return Article::where('id', '<>' , $this->id)
+        ->take($length)
+        ->get();
     }
 }

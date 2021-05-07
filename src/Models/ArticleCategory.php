@@ -36,4 +36,8 @@ class ArticleCategory extends ArticleBase
     public function articles(){
         return $this->hasMany('\bachphuc\LaravelArticle\Models\Article', 'category_id');
     }
+
+    public function getAdminHref(){
+        return route('admin.article-categories.edit', ['id' => $this->id]);
+    }
 }

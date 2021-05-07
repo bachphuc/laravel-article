@@ -11,8 +11,3 @@
 |
 */
 
-// Route::group(['prefix' => 'shopy'], function(){
-//     Route::get('/test', 'IndexController@index');
-// });
-
-// Shopy::routes();

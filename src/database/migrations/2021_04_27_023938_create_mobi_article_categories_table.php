@@ -14,7 +14,29 @@ class CreateMobiArticleCategoriesTable extends Migration
     public function up()
     {
         Schema::create('mobi_article_categories', function (Blueprint $table) {
-            //
+            $table->increments('id');
+
+            $table->string('title')->nullable();
+            $table->string('alias')->nullable();
+            $table->string('description')->nullable();
+
+            $table->string('image')->nullable();
+
+            $table->integer('user_id')->default(0);
+
+            $table->integer('total_article')->default(0);
+            $table->string('color')->nullable();
+            $table->string('icon_text')->nullable();
+            $table->string('icon_class')->nullable();
+
+            $table->integer('site_id')->default(0);
+
+            $table->string('thumbnail_120')->nullable();
+            $table->string('thumbnail_300')->nullable();
+            $table->string('thumbnail_500')->nullable();
+            $table->string('thumbnail_720')->nullable();
+
+            $table->timestamps();
         });
     }
 
