@@ -63,6 +63,9 @@ class ArticleController extends Controller
 
     public function create()
     {
+        if(!auth()->check()){
+            return redirect()->route('login');
+        }
         $form = $this->createForm();
         $form->setAttribute('cancelUrl', Article::getIndexHref());
 

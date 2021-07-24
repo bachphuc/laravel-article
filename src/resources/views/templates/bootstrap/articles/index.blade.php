@@ -3,9 +3,12 @@
 @section('content')
     <div class="container mt-5 mb-5">
         <h1>{{articles_trans('lang.articles_page_index_title')}}</h1>
+
+        @if(auth()->check())
         <div class="text-right mb-4">
             <a href="{{route('articles.create')}}" class="btn btn-primary">@lang('articles::lang.create_new_article')</a>
         </div>
+        @endif
         
         <div>
             @if(size_of($items))

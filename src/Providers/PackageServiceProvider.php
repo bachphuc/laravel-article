@@ -35,6 +35,8 @@ class PackageServiceProvider extends ServiceProvider
 
         // boot translator
         $this->loadTranslationsFrom($packagePath . '/resources/lang' , 'articles');
+
+        \HtmlElement::mapNamespace('articles', '\bachphuc\LaravelArticle');
     }
 
     /**

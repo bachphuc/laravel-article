@@ -19,4 +19,5 @@ return [
     'read_more' => 'Đọc tiếp',
     'articles_page_index_title' => 'Bài viết',
     'related_articles' => 'Bài viết liên quan',
+    'new_articles' => 'Bài viết mới',
 ];

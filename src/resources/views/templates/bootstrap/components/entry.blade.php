@@ -1,6 +1,6 @@
 @if(isset($item))
 <div class="mt-2">
-    <div class="d-lg-flex flex-row shadow mb-5 bg-body rounded">
+    <div class="d-lg-flex flex-row mb-5 bg-body rounded">
         @if($item->image)
         <img class="rounded-left w-lg-320 mw-lg-320 fit-cover" src="@__img" alt="@__title" />
         @endif
