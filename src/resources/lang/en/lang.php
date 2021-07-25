@@ -17,4 +17,5 @@ return [
     'edit' => 'Edit',
     'edit_article' => 'Edit article',
     'new_articles' => 'New articles',
+    'article_categories' => 'Article categories',
 ];

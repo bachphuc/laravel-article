@@ -20,6 +20,8 @@ class LaravelArticleFacade extends Facade
 
         $alias = isset($params['alias']) ? $params['alias'] : 'articles';
 
+        // article routes
+
         $router->get('/' .      $alias,                             $namespace . 'ArticleController@index')->name('articles.index');
         $router->get('/' .      $alias . '/' . trans('articles::lang.create-article-path'),  $namespace . 'ArticleController@create')->name('articles.create');
         $router->get('/' .      $alias . '/{article}',              $namespace . 'ArticleController@detail')->name('articles.show');
@@ -31,6 +33,11 @@ class LaravelArticleFacade extends Facade
     
 
         $router->get('/' .      $alias . '/{alias}',       $namespace . 'ArticleController@detail')->name('articles.detail');
+
+        // categories routers
+        $categoryAlias = isset($params['category_alias']) ? $params['category_alias'] : 'categories';
+
+        $router->get('/' . $alias . '/' . $categoryAlias . '/{alias}', $namespace . 'CategoryController@show')->name('articles.categories.show');
     }
 
     public static function adminRoutes(){

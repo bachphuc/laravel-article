@@ -7,6 +7,8 @@ class ArticleCategory extends ArticleBase
     protected $table = 'mobi_article_categories';
     protected $itemType = 'mobi_article_category';
 
+    protected static $_allCategories = null;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -39,5 +41,24 @@ class ArticleCategory extends ArticleBase
 
     public function getAdminHref(){
         return route('admin.article-categories.edit', ['id' => $this->id]);
+    }
+
+    public static function getAllCategories(){
+        if(!empty(self::$_allCategories)) return self::$_allCategories;
+
+        self::$_allCategories = ArticleCategory::all();
+
+        return self::$_allCategories;
+    }
+
+    public function getHref(){
+        return route('articles.categories.show', ['alias' => $this->alias]);
+    }
+
+    public static function findByAlias($alias){
+        $category = ArticleCategory::where('alias', $alias)
+        ->first();
+
+        return $category;
     }
 }

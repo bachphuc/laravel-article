@@ -102,9 +102,13 @@ class ArticleController extends Controller
     public function show(Request $request, Article $article)
     {
         meta_subject($article);
-        return __view('articles::articles.show', [
+        return __view('articles::articles.ashion-detail', [
             'article' => $article
         ]);
+
+        // return __view('articles::articles.show', [
+        //     'article' => $article
+        // ]);
     }
 
     public function detail(Request $request, $alias){

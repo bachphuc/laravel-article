@@ -10,3 +10,7 @@
     function articles_view_path($path){
         return LaravelArticle::viewPath($path);
     }
+
+    function articles_categories($params = []){
+        return LaravelArticle::categories();
+    }

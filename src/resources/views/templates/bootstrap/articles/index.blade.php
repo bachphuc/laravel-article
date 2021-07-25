@@ -12,9 +12,9 @@
         
         <div>
             @if(size_of($items))
-            @foreach($items as $item)
-            @include(articles_view_path('components.entry'), ['item' => $item])
-            @endforeach
+            
+            @include(articles_view_path('articles.columns-block'), ['items' => $items])
+            {{-- @include(articles_view_path('articles.list'), ['items' => $items]) --}}
 
             @include(articles_view_path('components.paginate'))
 

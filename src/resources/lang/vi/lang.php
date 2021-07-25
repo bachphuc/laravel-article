@@ -20,4 +20,13 @@ return [
     'articles_page_index_title' => 'Bài viết',
     'related_articles' => 'Bài viết liên quan',
     'new_articles' => 'Bài viết mới',
+    'article_categories' => 'Danh mục bài viết',
+    'update_article_success' => 'Cập nhập bài viết thành công.',
+    'categories' => 'Danh mục',
+    'all' => 'Tất cả',
+    'no_article_found' => 'Chưa có bài viết nào.',
+    'featured_articles' => 'Bài viết nổi bật',
+    'related_articles' => 'Bài viết liên quan',
+    'previous_article' => 'Bài viết trước',
+    'next_article' => 'Bài viết tiếp theo',
 ];

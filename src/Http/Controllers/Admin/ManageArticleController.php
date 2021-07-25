@@ -53,21 +53,28 @@ class ManageArticleController extends ManageBaseController{
     public function createFormElements($isUpdate = false){
         return  [
             'title' => [
-                'title' => trans('articles::lang.title'),
+                'title' => articles_trans('lang.title'),
                 'validator' => 'required',
                 'type' => 'text',
             ],
             'short_description' => [
-                'title' => trans('articles::lang.short_description'),
+                'title' => articles_trans('lang.short_description'),
                 'type' => 'text',
                 'validator' => 'required',
+            ],
+            'category_id' => [
+                'title' => articles_trans('lang.category'),
+                'type' => 'select',
+                'options' => [
+                    'model' => 'mobi_article_category'
+                ]
             ],
             'image' => [
                 'type' => 'image_input',
                 'thumbnail' => true
             ],
             'content' => [
-                'title' => trans('articles::lang.content'),
+                'title' => articles_trans('lang.content'),
                 'type' => 'text_editor',
                 'validator' => 'required',
                 'allow_upload_image' => true,

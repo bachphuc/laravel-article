@@ -3,17 +3,18 @@
 namespace bachphuc\LaravelArticle;
 
 use bachphuc\LaravelArticle\Models\Article;
+use bachphuc\LaravelArticle\Models\ArticleCategory;
 
 class LaravelArticle
 {
     public function getAdminMenus(){
         return [[
-            'title' => 'Article Categories',
+            'title' => trans('articles::lang.article_categories'),
             'icon' => 'dashboard',
             'url' => url('admin/article-categories'),
             'key' => 'article_categories',
         ], [
-            'title' => 'Articles',
+            'title' => trans('articles::lang.articles'),
             'icon' => 'dashboard',
             'url' => url('admin/articles'),
             'key' => 'articles',
@@ -53,5 +54,9 @@ class LaravelArticle
 
     public function viewPath($path){
         return __view_path($path, 'articles');
+    }
+
+    public function categories($params = []){
+        return ArticleCategory::getAllCategories();
     }
 }

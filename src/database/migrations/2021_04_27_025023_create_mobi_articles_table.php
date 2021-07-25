@@ -15,8 +15,8 @@ class CreateMobiArticlesTable extends Migration
     {
         Schema::create('mobi_articles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title')->nullable();
-            $table->string('short_description')->nullable();
+            $table->string('title', 255)->nullable();
+            $table->string('short_description', 255)->nullable();
             $table->mediumText('content')->nullable();
             
             $table->string('image')->nullable();
