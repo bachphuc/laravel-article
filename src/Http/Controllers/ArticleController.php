@@ -10,6 +10,11 @@ use Session;
 
 class ArticleController extends Controller
 {
+    public function __construct() 
+    {
+        theme_active_menu('articles.index');
+    }
+
     public function index(Request $request)
     {
         $params = $request->all();
